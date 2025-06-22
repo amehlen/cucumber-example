@@ -18,8 +18,8 @@ public class OfferController {
   }
 
   @GetMapping
-  public Offer getOffer(@RequestParam String produkt, @RequestParam int laufzeit) {
-    return offerService.calculateAndSaveOffer(produkt, laufzeit);
+  public Offer getOffer(@RequestParam String product, @RequestParam int duration) {
+    return offerService.calculateAndSaveOffer(product, duration);
   }
 
 }
