@@ -24,14 +24,14 @@ public class ApplicationController {
   }
 
   @GetMapping("/{id}")
-  public ResponseEntity<Application> status(@PathVariable Long id) {
+  public ResponseEntity<Application> getApplicationState(@PathVariable Long id) {
     return applicationService.getState(id)
         .map(ResponseEntity::ok)
         .orElse(ResponseEntity.notFound().build());
   }
 
   @PostMapping
-  public ResponseEntity<Application> neuerAntrag(@RequestParam Long applicationId,
+  public ResponseEntity<Application> createNewApplication(@RequestParam Long applicationId,
       @RequestParam String policyHolder) {
     return offerService.findOffer(applicationId)
         .map(application -> ResponseEntity.ok(applicationService.captureApplication(policyHolder, application)))
