@@ -1,0 +1,15 @@
+package de.axa.cucumber_example;
+
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import org.junit.runner.RunWith;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(
+    features = "src/test/resources/features",
+    glue = "de.axa.cucumber_example",
+    plugin = {"pretty", "html:target/cucumber-reports.html"}
+)
+public class CucumberTest {
+
+}
