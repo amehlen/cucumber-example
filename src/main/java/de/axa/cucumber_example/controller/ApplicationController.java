@@ -31,9 +31,9 @@ public class ApplicationController {
   }
 
   @PostMapping
-  public ResponseEntity<Application> createNewApplication(@RequestParam Long applicationId,
+  public ResponseEntity<Application> createNewApplication(@RequestParam Long offerId,
       @RequestParam String policyHolder) {
-    return offerService.findOffer(applicationId)
+    return offerService.findOffer(offerId)
         .map(application -> ResponseEntity.ok(applicationService.captureApplication(policyHolder, application)))
         .orElse(ResponseEntity.notFound().build());
   }
