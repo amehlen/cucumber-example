@@ -15,12 +15,12 @@ public class ApplicationService {
     this.applicationRepository = applicationRepository;
   }
 
-  public Application erfasseAntrag(String name, Offer offer) {
+  public Application captureApplication(String name, Offer offer) {
     Application application = new Application(name, offer, "EINGEREICHT");
     return applicationRepository.save(application);
   }
 
-  public Optional<Application> getStatus(Long id) {
+  public Optional<Application> getState(Long id) {
     return applicationRepository.findById(id);
   }
 

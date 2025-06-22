@@ -14,14 +14,14 @@ public class OfferService {
     this.offerRepository = offerRepository;
   }
 
-  public Offer berechneUndSpeichereAngebot(String product, int duration) {
+  public Offer calculateAndSaveOffer(String product, int duration) {
     double beitrag = duration * 10.5;
     double summe = beitrag * 20;
     Offer offer = new Offer(product, duration, beitrag, summe);
     return offerRepository.save(offer);
   }
 
-  public Optional<Offer> findeAngebot(Long id) {
+  public Optional<Offer> findOffer(Long id) {
     return offerRepository.findById(id);
   }
 
